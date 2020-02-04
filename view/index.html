@@ -1,24 +1,46 @@
-
+<body>
 <div>
   <div class="slds-page-header slds-m-top_medium">
-    <div style="display:inline-flex">
-      <img src="dxLogo.png" style="height: 40px;" class="align-center animated pulse"/>
-      <div class="slds-text-heading_large slds-m-top_small slds-m-left_small align-center black">Gooey</div>
+    <div class="slds-grid">
+      <div class="slds-col slds-size--1-of-3">
+        <div class="slds-align--absolute-center">
+          <button class="slds-button slds-button_brand top-buttons">ADMIN</button>
+        </div>
+      </div>
+      <div class="slds-col slds-size--1-of-3 slds-align--absolute-center">
+        <img src="dx.png" style="height: 70px;" class="slds-m-right_medium animated pulse"/>
+        <img src="Hybrid.png" style="height: 30px;"/>
+      </div>
+        <div class="slds-col slds-size--1-of-3">
+          <div class="slds-align--absolute-center">
+            <button class="slds-button slds-button_brand align-center top-buttons">DEVELOPER</button>
+          </div>
+        </div>
     </div>
   </div>
-  <div class="slds-card slds-m-top_xx-small">
-    <div class="slds-m-around_medium">
-      <p class="slds-m-bottom_small slds-text-heading_medium black">Scratch Org Commands</p>
-      <button class="slds-button slds-button_neutral slds-m-bottom_x-small" onclick="createNew()">Create New</button>
-      <div>
-        <button class="slds-button slds-button_brand slds-m-bottom_x-small" onclick="openOrg()">Open</button>
-        <button class="slds-button slds-button_brand slds-m-bottom_x-small" onclick="update()">Update Org From Source</button>
-        <button class="slds-button slds-button_brand slds-m-bottom_x-small" onclick="pull()">Save Changes to Source</button>
+  <div class="slds-grid">
+    <div class="slds-col slds-size--1-of-2">
+      <div class="slds-card slds-m-top_xx-small">
+        <div class="slds-m-around_medium">
+          <p class="slds-m-bottom_small slds-text-heading_medium black slds-align--absolute-center">Scratch Org Commands</p>
+          <div class="slds-align--absolute-center">
+          <button title="Create a new scratch org" class="slds-button slds-button_success slds-m-bottom_x-small" onclick="createNew()">Create</button>
+          <button class="slds-button slds-button_neutral slds-m-bottom_x-small" onclick="openOrg()">Open</button>
+          <button class="slds-button slds-button_brand slds-m-bottom_x-small" onclick="update()">Update</button>
+          <button class="slds-button slds-button_brand slds-m-bottom_x-small" onclick="pull()">Save Changes</button>
+        </div>
       </div>
+    </div>
+    <div class="slds-col slds-size--1-of-2">
+      
+    </div>
   </div>
 </div>
-
+</body>
 <link href="lightning.min.css" rel="stylesheet" type="text/css"/>
 <link href="calvin.css" rel="stylesheet" type="text/css"/>
 <link href="animate.css" rel="stylesheet" type="text/css"/>
 <script src="dxgLogic.js"/>
+<!-- Bootstrap -->
+<script src="bootstrap.min.js"></script>
+<link href="bootstrap.min.css" rel="stylesheet" type="text/css"/>

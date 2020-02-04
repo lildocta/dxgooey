@@ -1,7 +1,20 @@
 .align-center{
     margin-top:auto;
-    margin-bottom:auto
+    margin-bottom:auto;
+    margin-left:auto;
+    margin-right:auto
 }
 .black{
     color:black;
+}
+.top-buttons{
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+p .top-buttons {
+    font-size: large;
+}
+
+.gradient-background {
+    background: linear-gradient(29deg, rgba(3,48,128,1) 0%, rgba(9,74,121,0.42200630252100846) 20%, rgba(0,212,255,0.08867296918767509) 100%);
 }

@@ -18,6 +18,8 @@ export function activate(context: vscode.ExtensionContext) {
 	//create scratch org
 	let createNewScratchOrg = vscode.commands.registerCommand('extension.createNewScratchOrg', async() =>{
 		vscode.window.createTerminal('DX Gooey', 'Bash');
+		const answer = await vscode.window.showInputBox({prompt:'Provide a short description (10-20 letters) about what functionality you are going to be working on in Salesforce'});
+		vscode.window.activeTerminal?.sendText('git checkout -b ' + answer);
 		vscode.window.activeTerminal?.sendText('sfdx force:org:create -f project-scratch-def.json');
 	});
 	context.subscriptions.push(createNewScratchOrg);

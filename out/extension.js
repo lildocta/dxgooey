@@ -23,32 +23,34 @@ function activate(context) {
     }));
     //create scratch org
     let createNewScratchOrg = vscode.commands.registerCommand('extension.createNewScratchOrg', () => __awaiter(this, void 0, void 0, function* () {
-        var _a;
+        var _a, _b;
         vscode.window.createTerminal('DX Gooey', 'Bash');
-        (_a = vscode.window.activeTerminal) === null || _a === void 0 ? void 0 : _a.sendText('sfdx force:org:create -f project-scratch-def.json');
+        const answer = yield vscode.window.showInputBox({ prompt: 'Provide a short description (10-20 letters) about what functionality you are going to be working on in Salesforce' });
+        (_a = vscode.window.activeTerminal) === null || _a === void 0 ? void 0 : _a.sendText('git checkout -b ' + answer);
+        (_b = vscode.window.activeTerminal) === null || _b === void 0 ? void 0 : _b.sendText('sfdx force:org:create -f project-scratch-def.json');
     }));
     context.subscriptions.push(createNewScratchOrg);
     //update scratch org
     let openScratchOrg = vscode.commands.registerCommand('extension.openScratchOrg', () => __awaiter(this, void 0, void 0, function* () {
-        var _b;
+        var _c;
         vscode.window.createTerminal('DX Gooey', 'Bash');
-        (_b = vscode.window.activeTerminal) === null || _b === void 0 ? void 0 : _b.sendText('sfdx force:org:open');
+        (_c = vscode.window.activeTerminal) === null || _c === void 0 ? void 0 : _c.sendText('sfdx force:org:open');
     }));
     context.subscriptions.push(openScratchOrg);
     //update scratch org
     let updateScratchOrg = vscode.commands.registerCommand('extension.updateScratchOrg', () => __awaiter(this, void 0, void 0, function* () {
-        var _c;
+        var _d;
         vscode.window.createTerminal('DX Gooey', 'Bash');
-        (_c = vscode.window.activeTerminal) === null || _c === void 0 ? void 0 : _c.sendText('sfdx force:source:push');
+        (_d = vscode.window.activeTerminal) === null || _d === void 0 ? void 0 : _d.sendText('sfdx force:source:push');
     }));
     context.subscriptions.push(updateScratchOrg);
     //get changes from scratch org
     let pullFromScratchOrg = vscode.commands.registerCommand('extension.pullFromScratchOrg', () => __awaiter(this, void 0, void 0, function* () {
-        var _d, _e;
+        var _e, _f;
         vscode.window.createTerminal('DX Gooey', 'Bash');
-        yield ((_d = vscode.window.activeTerminal) === null || _d === void 0 ? void 0 : _d.sendText('sfdx force:source:pull'));
+        yield ((_e = vscode.window.activeTerminal) === null || _e === void 0 ? void 0 : _e.sendText('sfdx force:source:pull'));
         const answer = yield vscode.window.showInputBox({ prompt: 'What changes did you make in the Scratch Org' });
-        (_e = vscode.window.activeTerminal) === null || _e === void 0 ? void 0 : _e.sendText('git add . && git commit -m \'' + answer + '\' && git push');
+        (_f = vscode.window.activeTerminal) === null || _f === void 0 ? void 0 : _f.sendText('git add . && git commit -m \'' + answer + '\' && git push');
     }));
     context.subscriptions.push(pullFromScratchOrg);
     // const answer = await vscode.window.showInputBox();
